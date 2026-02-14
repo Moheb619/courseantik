@@ -1,0 +1,624 @@
+[
+  {
+    "id": "course-1",
+    "title": "Ultimate Cartoon Drawing Masterclass",
+    "description": "Learn to draw amazing cartoon characters from scratch! This comprehensive course covers everything from basic shapes to advanced character design, expressions, and animation basics.",
+    "price": 2499,
+    "thumbnail_url": "/src/assets/images/placeholders/course/course-1.jpg",
+    "trailer_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "level": "Beginner",
+    "published": true,
+    "total_students": 1245,
+    "rating": 4.8,
+    "duration": "32h 15m",
+    "created_at": "2025-11-01T10:00:00Z",
+    "instructors": [
+      {
+        "id": "inst-1",
+        "name": "Antik Das",
+        "avatar": "/src/assets/images/placeholders/avatar/instructor-1.jpg",
+        "bio": "Famous cartoon creator with 2M+ YouTube subscribers"
+      }
+    ],
+    "recommended_products": ["prod-1", "prod-3"],
+    "certificate_enabled": true,
+    "required_percentage": 70,
+    "modules": [
+      {
+        "id": "mod-1",
+        "title": "Getting Started with Cartooning",
+        "sort_order": 0,
+        "weight_percentage": 20,
+        "quiz_percentage": 60,
+        "assignment_percentage": 40,
+        "lessons": [
+          {
+            "id": "les-1",
+            "title": "Welcome & Course Overview",
+            "type": "video",
+            "duration": "12m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 0,
+            "completed": true
+          },
+          {
+            "id": "les-2",
+            "title": "Setting Up Your Workspace",
+            "type": "video",
+            "duration": "18m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 1,
+            "completed": true
+          },
+          {
+            "id": "les-3",
+            "title": "Basic Shapes Quiz",
+            "type": "quiz",
+            "duration": "15m",
+            "sort_order": 2,
+            "completed": false
+          }
+        ],
+        "quiz": {
+          "id": "quiz-1",
+          "total_questions_pool": 20,
+          "questions_per_attempt": 5,
+          "max_attempts": 3,
+          "pass_percentage": 60,
+          "questions": [
+            {
+              "id": "q1",
+              "text": "What is the most basic shape used in cartooning?",
+              "options": [
+                { "id": "a", "text": "Circle" },
+                { "id": "b", "text": "Triangle" },
+                { "id": "c", "text": "Hexagon" },
+                { "id": "d", "text": "Pentagon" }
+              ],
+              "correct_option_id": "a"
+            },
+            {
+              "id": "q2",
+              "text": "Which tool is best for inking cartoon outlines?",
+              "options": [
+                { "id": "a", "text": "Pencil" },
+                { "id": "b", "text": "Felt-tip pen" },
+                { "id": "c", "text": "Crayon" },
+                { "id": "d", "text": "Charcoal" }
+              ],
+              "correct_option_id": "b"
+            },
+            {
+              "id": "q3",
+              "text": "How many heads tall is a typical cartoon character?",
+              "options": [
+                { "id": "a", "text": "2-3 heads" },
+                { "id": "b", "text": "7-8 heads" },
+                { "id": "c", "text": "10 heads" },
+                { "id": "d", "text": "1 head" }
+              ],
+              "correct_option_id": "a"
+            },
+            {
+              "id": "q4",
+              "text": "What creates appeal in a cartoon character?",
+              "options": [
+                { "id": "a", "text": "Complexity" },
+                { "id": "b", "text": "Exaggeration" },
+                { "id": "c", "text": "Realism" },
+                { "id": "d", "text": "Symmetry" }
+              ],
+              "correct_option_id": "b"
+            },
+            {
+              "id": "q5",
+              "text": "What is 'squash and stretch'?",
+              "options": [
+                { "id": "a", "text": "A drawing tool" },
+                { "id": "b", "text": "A color technique" },
+                { "id": "c", "text": "An animation principle" },
+                { "id": "d", "text": "A paper type" }
+              ],
+              "correct_option_id": "c"
+            }
+          ]
+        },
+        "assignment": {
+          "id": "assign-1",
+          "title": "Draw 5 Basic Characters",
+          "description": "Using the techniques from this module, draw 5 unique cartoon characters using only basic shapes. Submit a link to your work."
+        },
+        "resources": [
+          {
+            "id": "res-1",
+            "title": "Shape Reference Sheet",
+            "type": "pdf",
+            "url": "#"
+          },
+          {
+            "id": "res-2",
+            "title": "Recommended Tools List",
+            "type": "notes",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "id": "mod-2",
+        "title": "Character Expressions & Emotions",
+        "sort_order": 1,
+        "weight_percentage": 30,
+        "quiz_percentage": 50,
+        "assignment_percentage": 50,
+        "lessons": [
+          {
+            "id": "les-4",
+            "title": "The 6 Basic Expressions",
+            "type": "video",
+            "duration": "25m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 0,
+            "completed": false
+          },
+          {
+            "id": "les-5",
+            "title": "Eye & Mouth Variations",
+            "type": "video",
+            "duration": "20m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 1,
+            "completed": false
+          },
+          {
+            "id": "les-6",
+            "title": "Expression Assignment",
+            "type": "assignment",
+            "duration": "30m",
+            "sort_order": 2,
+            "completed": false
+          }
+        ],
+        "quiz": {
+          "id": "quiz-2",
+          "total_questions_pool": 15,
+          "questions_per_attempt": 5,
+          "max_attempts": 2,
+          "pass_percentage": 70,
+          "questions": [
+            {
+              "id": "q6",
+              "text": "Which eyebrow position indicates anger?",
+              "options": [
+                { "id": "a", "text": "Raised" },
+                { "id": "b", "text": "V-shaped/lowered" },
+                { "id": "c", "text": "Curved" },
+                { "id": "d", "text": "Straight" }
+              ],
+              "correct_option_id": "b"
+            },
+            {
+              "id": "q7",
+              "text": "A wide open mouth typically shows?",
+              "options": [
+                { "id": "a", "text": "Sadness" },
+                { "id": "b", "text": "Surprise" },
+                { "id": "c", "text": "Boredom" },
+                { "id": "d", "text": "Calm" }
+              ],
+              "correct_option_id": "b"
+            },
+            {
+              "id": "q8",
+              "text": "What makes eyes look happy in cartoons?",
+              "options": [
+                { "id": "a", "text": "Closed in U-shape" },
+                { "id": "b", "text": "Wide circles" },
+                { "id": "c", "text": "X-shapes" },
+                { "id": "d", "text": "Small dots" }
+              ],
+              "correct_option_id": "a"
+            },
+            {
+              "id": "q9",
+              "text": "Tears in cartoons are usually drawn as?",
+              "options": [
+                { "id": "a", "text": "Realistic drops" },
+                { "id": "b", "text": "Exaggerated streams" },
+                { "id": "c", "text": "Small dots" },
+                { "id": "d", "text": "Invisible" }
+              ],
+              "correct_option_id": "b"
+            },
+            {
+              "id": "q10",
+              "text": "Blush marks in cartoons appear as?",
+              "options": [
+                { "id": "a", "text": "Blue patches" },
+                { "id": "b", "text": "Pink/red circles on cheeks" },
+                { "id": "c", "text": "Green lines" },
+                { "id": "d", "text": "Black dots" }
+              ],
+              "correct_option_id": "b"
+            }
+          ]
+        },
+        "assignment": {
+          "id": "assign-2",
+          "title": "Expression Sheet Challenge",
+          "description": "Create an expression sheet showing the same character with 8 different emotions."
+        },
+        "resources": [
+          {
+            "id": "res-3",
+            "title": "Expression Cheat Sheet",
+            "type": "pdf",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "id": "mod-3",
+        "title": "Color Theory for Cartoons",
+        "sort_order": 2,
+        "weight_percentage": 25,
+        "quiz_percentage": 70,
+        "assignment_percentage": 30,
+        "lessons": [
+          {
+            "id": "les-7",
+            "title": "Understanding the Color Wheel",
+            "type": "video",
+            "duration": "22m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 0,
+            "completed": false
+          },
+          {
+            "id": "les-8",
+            "title": "Flat vs Gradient Coloring",
+            "type": "video",
+            "duration": "28m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 1,
+            "completed": false
+          }
+        ],
+        "quiz": {
+          "id": "quiz-3",
+          "total_questions_pool": 10,
+          "questions_per_attempt": 5,
+          "max_attempts": 3,
+          "pass_percentage": 60,
+          "questions": [
+            {
+              "id": "q11",
+              "text": "Complementary colors are?",
+              "options": [
+                { "id": "a", "text": "Next to each other" },
+                { "id": "b", "text": "Opposite on the wheel" },
+                { "id": "c", "text": "Same hue" },
+                { "id": "d", "text": "Random colors" }
+              ],
+              "correct_option_id": "b"
+            },
+            {
+              "id": "q12",
+              "text": "Warm colors include?",
+              "options": [
+                { "id": "a", "text": "Blue, green, purple" },
+                { "id": "b", "text": "Red, orange, yellow" },
+                { "id": "c", "text": "Black, white, gray" },
+                { "id": "d", "text": "Cyan, teal, navy" }
+              ],
+              "correct_option_id": "b"
+            }
+          ]
+        },
+        "assignment": null,
+        "resources": []
+      },
+      {
+        "id": "mod-4",
+        "title": "Animation Basics",
+        "sort_order": 3,
+        "weight_percentage": 25,
+        "quiz_percentage": 0,
+        "assignment_percentage": 0,
+        "lessons": [
+          {
+            "id": "les-9",
+            "title": "12 Principles of Animation",
+            "type": "video",
+            "duration": "35m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 0,
+            "completed": false
+          },
+          {
+            "id": "les-10",
+            "title": "Creating Your First GIF",
+            "type": "video",
+            "duration": "40m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 1,
+            "completed": false
+          }
+        ],
+        "quiz": null,
+        "assignment": null,
+        "resources": [
+          {
+            "id": "res-4",
+            "title": "Free Animation Software List",
+            "type": "notes",
+            "url": "#"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "course-2",
+    "title": "Digital Art for Beginners",
+    "description": "Master digital art tools and techniques. Learn Photoshop, Procreate, and more to create stunning digital illustrations and paintings.",
+    "price": 1999,
+    "thumbnail_url": "/src/assets/images/placeholders/course/course-2.jpg",
+    "trailer_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "level": "Beginner",
+    "published": true,
+    "total_students": 892,
+    "rating": 4.6,
+    "duration": "24h 30m",
+    "created_at": "2025-12-15T10:00:00Z",
+    "instructors": [
+      {
+        "id": "inst-2",
+        "name": "Sara Hossain",
+        "avatar": "/src/assets/images/placeholders/avatar/instructor-2.jpg",
+        "bio": "Professional digital artist with 10+ years of experience"
+      }
+    ],
+    "recommended_products": ["prod-2"],
+    "certificate_enabled": true,
+    "required_percentage": 65,
+    "modules": [
+      {
+        "id": "mod-5",
+        "title": "Digital Tools Setup",
+        "sort_order": 0,
+        "weight_percentage": 30,
+        "quiz_percentage": 100,
+        "assignment_percentage": 0,
+        "lessons": [
+          {
+            "id": "les-11",
+            "title": "Choosing Your Software",
+            "type": "video",
+            "duration": "15m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 0,
+            "completed": false
+          },
+          {
+            "id": "les-12",
+            "title": "Tablet vs Mouse",
+            "type": "video",
+            "duration": "10m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 1,
+            "completed": false
+          }
+        ],
+        "quiz": {
+          "id": "quiz-4",
+          "total_questions_pool": 10,
+          "questions_per_attempt": 5,
+          "max_attempts": 3,
+          "pass_percentage": 50,
+          "questions": []
+        },
+        "assignment": null,
+        "resources": []
+      },
+      {
+        "id": "mod-6",
+        "title": "Brushes & Layers",
+        "sort_order": 1,
+        "weight_percentage": 70,
+        "quiz_percentage": 40,
+        "assignment_percentage": 60,
+        "lessons": [
+          {
+            "id": "les-13",
+            "title": "Understanding Layers",
+            "type": "video",
+            "duration": "20m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 0,
+            "completed": false
+          },
+          {
+            "id": "les-14",
+            "title": "Custom Brush Creation",
+            "type": "video",
+            "duration": "25m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 1,
+            "completed": false
+          }
+        ],
+        "quiz": {
+          "id": "quiz-5",
+          "total_questions_pool": 8,
+          "questions_per_attempt": 4,
+          "max_attempts": 2,
+          "pass_percentage": 60,
+          "questions": []
+        },
+        "assignment": {
+          "id": "assign-3",
+          "title": "Layer Composition Project",
+          "description": "Create a multi-layered composition with at least 5 layers."
+        },
+        "resources": []
+      }
+    ]
+  },
+  {
+    "id": "course-3",
+    "title": "Advanced Character Design",
+    "description": "Take your character design skills to the next level. Learn professional techniques used in movies, games, and comic books.",
+    "price": 3499,
+    "thumbnail_url": "/src/assets/images/placeholders/course/course-3.jpg",
+    "trailer_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "level": "Advanced",
+    "published": true,
+    "total_students": 456,
+    "rating": 4.9,
+    "duration": "40h 10m",
+    "created_at": "2026-01-05T10:00:00Z",
+    "instructors": [
+      {
+        "id": "inst-1",
+        "name": "Antik Das",
+        "avatar": "/src/assets/images/placeholders/avatar/instructor-1.jpg",
+        "bio": "Famous cartoon creator"
+      },
+      {
+        "id": "inst-3",
+        "name": "Rahim Uddin",
+        "avatar": "/src/assets/images/placeholders/avatar/instructor-3.jpg",
+        "bio": "Game character designer at Epic Studios"
+      }
+    ],
+    "recommended_products": ["prod-1", "prod-4"],
+    "certificate_enabled": true,
+    "required_percentage": 75,
+    "modules": [
+      {
+        "id": "mod-7",
+        "title": "Silhouette & Proportion",
+        "sort_order": 0,
+        "weight_percentage": 50,
+        "quiz_percentage": 50,
+        "assignment_percentage": 50,
+        "lessons": [
+          {
+            "id": "les-15",
+            "title": "The Power of Silhouette",
+            "type": "video",
+            "duration": "30m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 0,
+            "completed": false
+          }
+        ],
+        "quiz": {
+          "id": "quiz-6",
+          "total_questions_pool": 12,
+          "questions_per_attempt": 6,
+          "max_attempts": 2,
+          "pass_percentage": 70,
+          "questions": []
+        },
+        "assignment": {
+          "id": "assign-4",
+          "title": "Silhouette Lineup",
+          "description": "Design 3 distinct characters recognizable only by their silhouette."
+        },
+        "resources": []
+      },
+      {
+        "id": "mod-8",
+        "title": "Storytelling Through Design",
+        "sort_order": 1,
+        "weight_percentage": 50,
+        "quiz_percentage": 30,
+        "assignment_percentage": 70,
+        "lessons": [
+          {
+            "id": "les-16",
+            "title": "Visual Storytelling Techniques",
+            "type": "video",
+            "duration": "45m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 0,
+            "completed": false
+          }
+        ],
+        "quiz": null,
+        "assignment": {
+          "id": "assign-5",
+          "title": "Character Story Sheet",
+          "description": "Design a full character with backstory, visual cues, and props."
+        },
+        "resources": []
+      }
+    ]
+  },
+  {
+    "id": "course-4",
+    "title": "Bangla Calligraphy Art",
+    "description": "Master the beautiful art of Bangla calligraphy. From traditional to modern styles — learn to write stunning Bangla letterforms.",
+    "price": 0,
+    "thumbnail_url": "/src/assets/images/placeholders/course/course-4.jpg",
+    "trailer_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "level": "Intermediate",
+    "published": true,
+    "total_students": 2100,
+    "rating": 4.7,
+    "duration": "18h 45m",
+    "created_at": "2026-01-20T10:00:00Z",
+    "instructors": [
+      {
+        "id": "inst-1",
+        "name": "Antik Das",
+        "avatar": "/src/assets/images/placeholders/avatar/instructor-1.jpg",
+        "bio": "Famous cartoon creator"
+      }
+    ],
+    "recommended_products": ["prod-5"],
+    "certificate_enabled": false,
+    "required_percentage": 60,
+    "modules": [
+      {
+        "id": "mod-9",
+        "title": "Introduction to Bangla Scripts",
+        "sort_order": 0,
+        "weight_percentage": 100,
+        "quiz_percentage": 0,
+        "assignment_percentage": 0,
+        "lessons": [
+          {
+            "id": "les-17",
+            "title": "History of Bangla Calligraphy",
+            "type": "video",
+            "duration": "20m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 0,
+            "completed": false
+          },
+          {
+            "id": "les-18",
+            "title": "Essential Tools & Inks",
+            "type": "video",
+            "duration": "15m",
+            "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "sort_order": 1,
+            "completed": false
+          }
+        ],
+        "quiz": null,
+        "assignment": null,
+        "resources": [
+          {
+            "id": "res-5",
+            "title": "Practice Templates",
+            "type": "pdf",
+            "url": "#"
+          }
+        ]
+      }
+    ]
+  }
+]

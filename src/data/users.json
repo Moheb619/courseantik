@@ -1,0 +1,91 @@
+{
+  "currentUser": {
+    "id": "user-student-1",
+    "name": "Rafiq Ahmed",
+    "email": "rafiq@example.com",
+    "role": "student",
+    "avatar": "/src/assets/images/placeholders/avatar/student-1.jpg",
+    "joined_at": "2025-09-15T10:00:00Z"
+  },
+  "users": [
+    {
+      "id": "user-admin-1",
+      "name": "Antik Das",
+      "email": "admin@courseantik.com",
+      "role": "admin",
+      "avatar": "/src/assets/images/placeholders/avatar/admin-1.jpg",
+      "joined_at": "2025-01-01T10:00:00Z",
+      "status": "active"
+    },
+    {
+      "id": "user-inst-1",
+      "name": "Antik Das",
+      "email": "antik@courseantik.com",
+      "role": "instructor",
+      "avatar": "/src/assets/images/placeholders/avatar/instructor-1.jpg",
+      "joined_at": "2025-01-01T10:00:00Z",
+      "status": "active",
+      "assigned_courses": ["course-1", "course-3", "course-4"]
+    },
+    {
+      "id": "user-inst-2",
+      "name": "Sara Hossain",
+      "email": "sara@courseantik.com",
+      "role": "instructor",
+      "avatar": "/src/assets/images/placeholders/avatar/instructor-2.jpg",
+      "joined_at": "2025-06-15T10:00:00Z",
+      "status": "active",
+      "assigned_courses": ["course-2"]
+    },
+    {
+      "id": "user-inst-3",
+      "name": "Rahim Uddin",
+      "email": "rahim@courseantik.com",
+      "role": "instructor",
+      "avatar": "/src/assets/images/placeholders/avatar/instructor-3.jpg",
+      "joined_at": "2025-08-20T10:00:00Z",
+      "status": "active",
+      "assigned_courses": ["course-3"]
+    },
+    {
+      "id": "user-student-1",
+      "name": "Rafiq Ahmed",
+      "email": "rafiq@example.com",
+      "role": "student",
+      "avatar": "/src/assets/images/placeholders/avatar/student-1.jpg",
+      "joined_at": "2025-09-15T10:00:00Z",
+      "status": "active",
+      "enrolled_courses": ["course-1", "course-4"]
+    },
+    {
+      "id": "user-student-2",
+      "name": "Fatima Khatun",
+      "email": "fatima@example.com",
+      "role": "student",
+      "avatar": "/src/assets/images/placeholders/avatar/student-2.jpg",
+      "joined_at": "2025-10-01T10:00:00Z",
+      "status": "active",
+      "enrolled_courses": ["course-1", "course-2"]
+    },
+    {
+      "id": "user-student-3",
+      "name": "Kamal Hosen",
+      "email": "kamal@example.com",
+      "role": "student",
+      "avatar": "/src/assets/images/placeholders/avatar/student-3.jpg",
+      "joined_at": "2025-11-05T10:00:00Z",
+      "status": "active",
+      "enrolled_courses": ["course-1", "course-3"]
+    },
+    {
+      "id": "user-student-4",
+      "name": "Nusrat Jahan",
+      "email": "nusrat@example.com",
+      "role": "student",
+      "avatar": "/src/assets/images/placeholders/avatar/student-4.jpg",
+      "joined_at": "2025-12-20T10:00:00Z",
+      "status": "suspended",
+      "enrolled_courses": ["course-2"]
+    }
+  ]
+}

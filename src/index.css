@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Red/Orange Cartoon Theme */
+    --background: 30 50% 98%;
+    --foreground: 20 20% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 20% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 20% 12%;
+
+    /* Primary: Bold Red */
+    --primary: 4 80% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Warm Orange */
+    --secondary: 28 90% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 30 20% 94%;
+    --muted-foreground: 20 10% 45%;
+
+    /* Accent: Sunny Yellow-Orange */
+    --accent: 36 95% 58%;
+    --accent-foreground: 20 20% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 4 80% 56%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 20 20% 12%;
+
+    /* Chart colors */
+    --chart-1: 4 80% 56%;
+    --chart-2: 28 90% 55%;
+    --chart-3: 36 95% 58%;
+    --chart-4: 142 71% 45%;
+    --chart-5: 262 83% 58%;
+  }
+
+  .dark {
+    --background: 20 20% 8%;
+    --foreground: 30 20% 95%;
+
+    --card: 20 15% 12%;
+    --card-foreground: 30 20% 95%;
+
+    --popover: 20 15% 12%;
+    --popover-foreground: 30 20% 95%;
+
+    --primary: 4 80% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 28 90% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 20 15% 18%;
+    --muted-foreground: 30 10% 60%;
+
+    --accent: 36 95% 58%;
+    --accent-foreground: 20 20% 12%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 20 15% 20%;
+    --input: 20 15% 20%;
+    --ring: 4 80% 56%;
+
+    --chart-1: 4 80% 60%;
+    --chart-2: 28 90% 60%;
+    --chart-3: 36 95% 62%;
+    --chart-4: 142 71% 50%;
+    --chart-5: 262 83% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
+
+/* Cartoon-specific utility classes */
+@layer utilities {
+  .cartoon-border {
+    @apply border-[3px] border-foreground/90 rounded-2xl;
+  }
+  .cartoon-shadow {
+    box-shadow: 4px 4px 0px 0px hsl(var(--foreground) / 0.85);
+  }
+  .cartoon-shadow-sm {
+    box-shadow: 2px 2px 0px 0px hsl(var(--foreground) / 0.85);
+  }
+  .cartoon-shadow-primary {
+    box-shadow: 4px 4px 0px 0px hsl(var(--primary));
+  }
+  .cartoon-hover {
+    @apply transition-all duration-200;
+  }
+  .cartoon-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 6px 6px 0px 0px hsl(var(--foreground) / 0.85);
+  }
+  .gradient-primary {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(var(--secondary))
+    );
+  }
+  .gradient-warm {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--secondary)),
+      hsl(var(--accent))
+    );
+  }
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(var(--secondary))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}

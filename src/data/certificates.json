@@ -1,0 +1,41 @@
+[
+  {
+    "id": "cert-1",
+    "user_id": "user-student-1",
+    "user_name": "Rafiq Ahmed",
+    "course_id": "course-4",
+    "course_title": "Bangla Calligraphy Art",
+    "instructors": ["Antik Das"],
+    "completion_date": "2026-01-20T18:00:00Z",
+    "verification_code": "CA-2026-XK9M4P",
+    "verification_url": "/certificates/verify/CA-2026-XK9M4P",
+    "final_score": 82,
+    "status": "active"
+  },
+  {
+    "id": "cert-2",
+    "user_id": "user-student-2",
+    "user_name": "Fatima Khatun",
+    "course_id": "course-1",
+    "course_title": "Ultimate Cartoon Drawing Masterclass",
+    "instructors": ["Antik Das"],
+    "completion_date": "2026-01-15T12:00:00Z",
+    "verification_code": "CA-2026-LQ7R2N",
+    "verification_url": "/certificates/verify/CA-2026-LQ7R2N",
+    "final_score": 91,
+    "status": "active"
+  },
+  {
+    "id": "cert-3",
+    "user_id": "user-student-3",
+    "user_name": "Kamal Hosen",
+    "course_id": "course-1",
+    "course_title": "Ultimate Cartoon Drawing Masterclass",
+    "instructors": ["Antik Das"],
+    "completion_date": "2026-02-01T09:00:00Z",
+    "verification_code": "CA-2026-WJ5T8B",
+    "verification_url": "/certificates/verify/CA-2026-WJ5T8B",
+    "final_score": 76,
+    "status": "revoked"
+  }
+]

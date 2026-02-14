@@ -1,0 +1,56 @@
+[
+  {
+    "id": "notif-1",
+    "type": "enrollment",
+    "title": "Enrollment Confirmed",
+    "message": "You have successfully enrolled in 'Ultimate Cartoon Drawing Masterclass'.",
+    "read": false,
+    "created_at": "2026-02-10T10:00:00Z",
+    "link": "/courses/course-1"
+  },
+  {
+    "id": "notif-2",
+    "type": "assignment_graded",
+    "title": "Assignment Graded",
+    "message": "Your assignment 'Draw 5 Basic Characters' has been graded. Score: 85%",
+    "read": false,
+    "created_at": "2026-02-09T14:30:00Z",
+    "link": "/courses/course-1/learn"
+  },
+  {
+    "id": "notif-3",
+    "type": "payment_success",
+    "title": "Payment Successful",
+    "message": "Payment of ৳770 for order #order-2 was successful.",
+    "read": true,
+    "created_at": "2026-01-28T09:16:00Z",
+    "link": "/orders"
+  },
+  {
+    "id": "notif-4",
+    "type": "course_complete",
+    "title": "Course Completed! 🎉",
+    "message": "Congratulations! You have completed 'Bangla Calligraphy Art'. Your certificate is ready!",
+    "read": true,
+    "created_at": "2026-01-20T18:00:00Z",
+    "link": "/certificates"
+  },
+  {
+    "id": "notif-5",
+    "type": "admin_action",
+    "title": "Score Override",
+    "message": "Admin has updated your quiz score for Module 1 in 'Ultimate Cartoon Drawing Masterclass'.",
+    "read": false,
+    "created_at": "2026-02-08T11:00:00Z",
+    "link": "/courses/course-1/learn"
+  },
+  {
+    "id": "notif-6",
+    "type": "enrollment",
+    "title": "Free Course Available",
+    "message": "A new free course 'Bangla Calligraphy Art' is now available. Enroll today!",
+    "read": true,
+    "created_at": "2026-01-20T10:00:00Z",
+    "link": "/courses/course-4"
+  }
+]

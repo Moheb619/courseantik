@@ -1,0 +1,74 @@
+[
+  {
+    "id": "prod-1",
+    "title": "Antik's Cartoon Sketchbook (A4)",
+    "description": "Premium 200-page sketchbook with thick, bleed-proof paper. Perfect for cartoon drawing practice. Features Antik's exclusive cover art.",
+    "price": 450,
+    "category": "Art Supplies",
+    "stock": 120,
+    "images": ["/src/assets/images/placeholders/product/product-1.jpg"],
+    "thumbnail": "/src/assets/images/placeholders/product/product-1.jpg",
+    "featured": true,
+    "created_at": "2025-10-01T10:00:00Z"
+  },
+  {
+    "id": "prod-2",
+    "title": "Digital Drawing Tablet Starter Kit",
+    "description": "Entry-level drawing tablet bundle with pen, nibs, and glove. Compatible with all major drawing software. Great for beginners!",
+    "price": 3200,
+    "category": "Electronics",
+    "stock": 45,
+    "images": ["/src/assets/images/placeholders/product/product-2.jpg"],
+    "thumbnail": "/src/assets/images/placeholders/product/product-2.jpg",
+    "featured": true,
+    "created_at": "2025-10-15T10:00:00Z"
+  },
+  {
+    "id": "prod-3",
+    "title": "Cartoon Character T-Shirt (Unisex)",
+    "description": "100% cotton t-shirt featuring Antik's most popular cartoon character. Available in S, M, L, XL sizes. Machine washable.",
+    "price": 650,
+    "category": "Merchandise",
+    "stock": 200,
+    "images": ["/src/assets/images/placeholders/product/product-3.jpg"],
+    "thumbnail": "/src/assets/images/placeholders/product/product-3.jpg",
+    "featured": true,
+    "created_at": "2025-11-01T10:00:00Z"
+  },
+  {
+    "id": "prod-4",
+    "title": "Professional Marker Set (24 Colors)",
+    "description": "Dual-tip alcohol-based markers perfect for cartoon coloring. Vibrant, blendable colors with both fine and broad tips.",
+    "price": 1800,
+    "category": "Art Supplies",
+    "stock": 75,
+    "images": ["/src/assets/images/placeholders/product/product-4.jpg"],
+    "thumbnail": "/src/assets/images/placeholders/product/product-4.jpg",
+    "featured": false,
+    "created_at": "2025-11-15T10:00:00Z"
+  },
+  {
+    "id": "prod-5",
+    "title": "Calligraphy Pen Set (Bangla Special)",
+    "description": "Handcrafted calligraphy pen set with 6 nibs designed specifically for Bangla script. Includes ink bottle and practice guide.",
+    "price": 950,
+    "category": "Art Supplies",
+    "stock": 60,
+    "images": ["/src/assets/images/placeholders/product/product-5.jpg"],
+    "thumbnail": "/src/assets/images/placeholders/product/product-5.jpg",
+    "featured": false,
+    "created_at": "2025-12-01T10:00:00Z"
+  },
+  {
+    "id": "prod-6",
+    "title": "Antik Cartoon Sticker Pack (50pcs)",
+    "description": "Vinyl waterproof stickers featuring 50 unique cartoon characters by Antik. Perfect for laptops, water bottles, and notebooks.",
+    "price": 250,
+    "category": "Merchandise",
+    "stock": 500,
+    "images": ["/src/assets/images/placeholders/product/product-6.jpg"],
+    "thumbnail": "/src/assets/images/placeholders/product/product-6.jpg",
+    "featured": true,
+    "created_at": "2025-12-10T10:00:00Z"
+  }
+]
