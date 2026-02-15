@@ -1,3 +1,6 @@
+// ============================================================
+// ProductsPage — Public shop / merch page
+// ============================================================
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Search, ShoppingBag, Plus, Loader2 } from "lucide-react";
@@ -5,9 +8,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import { productApi } from "@/services/supabase/productApi";
+import { categoryApi } from "@/services/supabase/categoryApi";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
@@ -15,10 +20,14 @@ const ProductsPage = () => {
   const { addToCart } = useCart();
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchData = async () => {
       try {
-        const data = await productApi.getProducts();
-        setProducts(data);
+        const [prods, cats] = await Promise.all([
+          productApi.getProducts(),
+          categoryApi.getCategories(),
+        ]);
+        setProducts(prods);
+        setCategories(cats);
       } catch (err) {
         console.error("Error fetching products:", err);
         setError("Failed to load products.");
@@ -26,19 +35,28 @@ const ProductsPage = () => {
         setLoading(false);
       }
     };
-    fetchProducts();
+    fetchData();
   }, []);
 
-  const categories = ["All", ...new Set(products.map((p) => p.category))];
-
+  // Filter by search + category
   const filtered = products
     .filter((p) => p.title.toLowerCase().includes(search.toLowerCase()))
-    .filter((p) => categoryFilter === "All" || p.category === categoryFilter);
+    .filter(
+      (p) => categoryFilter === "All" || p.category?.name === categoryFilter,
+    );
 
   const handleAddToCart = (e, product) => {
     e.preventDefault();
     e.stopPropagation();
     addToCart(product);
+  };
+
+  // Compute total stock (variants or base)
+  const getStock = (product) => {
+    if (product.variants?.length > 0) {
+      return product.variants.reduce((sum, v) => sum + (v.stock || 0), 0);
+    }
+    return product.stock;
   };
 
   if (loading) {
@@ -79,19 +97,31 @@ const ProductsPage = () => {
           />
         </div>
         <div className="flex gap-2 overflow-x-auto pb-1">
+          <Button
+            variant={categoryFilter === "All" ? "default" : "outline"}
+            size="sm"
+            onClick={() => setCategoryFilter("All")}
+            className={`rounded-full font-semibold whitespace-nowrap ${
+              categoryFilter === "All"
+                ? "cartoon-shadow-sm"
+                : "border-[2px] border-foreground/10"
+            }`}
+          >
+            All
+          </Button>
           {categories.map((cat) => (
             <Button
-              key={cat}
-              variant={categoryFilter === cat ? "default" : "outline"}
+              key={cat.id}
+              variant={categoryFilter === cat.name ? "default" : "outline"}
               size="sm"
-              onClick={() => setCategoryFilter(cat)}
+              onClick={() => setCategoryFilter(cat.name)}
               className={`rounded-full font-semibold whitespace-nowrap ${
-                categoryFilter === cat
+                categoryFilter === cat.name
                   ? "cartoon-shadow-sm"
                   : "border-[2px] border-foreground/10"
               }`}
             >
-              {cat}
+              {cat.name}
             </Button>
           ))}
         </div>
@@ -108,44 +138,61 @@ const ProductsPage = () => {
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {filtered.map((product) => (
-            <Link
-              key={product.id}
-              to={`/products/${product.id}`}
-              className="group bg-white rounded-2xl border-[3px] border-foreground/10 overflow-hidden cartoon-hover"
-            >
-              {/* Image */}
-              <div className="aspect-square bg-gradient-to-br from-secondary/10 to-accent/10 flex items-center justify-center relative">
-                <ShoppingBag className="w-12 h-12 text-secondary/20" />
-                <span className="absolute top-2 left-2 bg-accent text-foreground text-[10px] font-bold px-2 py-0.5 rounded-full">
-                  {product.category}
-                </span>
-              </div>
-
-              {/* Info */}
-              <div className="p-4 space-y-2">
-                <h3 className="font-bold text-sm line-clamp-2 group-hover:text-primary transition-colors">
-                  {product.title}
-                </h3>
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-black text-primary">
-                    ৳{product.price.toLocaleString()}
+          {filtered.map((product) => {
+            const stock = getStock(product);
+            return (
+              <Link
+                key={product.id}
+                to={`/products/${product.id}`}
+                className="group bg-white rounded-2xl border-[3px] border-foreground/10 overflow-hidden cartoon-hover"
+              >
+                {/* Image — use actual thumbnail or fallback */}
+                <div className="aspect-square bg-gradient-to-br from-secondary/10 to-accent/10 flex items-center justify-center relative overflow-hidden">
+                  {product.thumbnail ? (
+                    <img
+                      src={product.thumbnail}
+                      alt={product.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <ShoppingBag className="w-12 h-12 text-secondary/20" />
+                  )}
+                  <span className="absolute top-2 left-2 bg-accent text-foreground text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    {product.category?.name || "General"}
                   </span>
-                  <button
-                    onClick={(e) => handleAddToCart(e, product)}
-                    className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:scale-110 transition-transform"
-                  >
-                    <Plus className="w-4 h-4" />
-                  </button>
+                  {stock === 0 && (
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                      <span className="text-white font-bold text-sm bg-destructive px-3 py-1 rounded-full">
+                        Out of Stock
+                      </span>
+                    </div>
+                  )}
                 </div>
-                <p className="text-xs text-muted-foreground">
-                  {product.stock > 0
-                    ? `${product.stock} in stock`
-                    : "Out of stock"}
-                </p>
-              </div>
-            </Link>
-          ))}
+
+                {/* Info */}
+                <div className="p-4 space-y-2">
+                  <h3 className="font-bold text-sm line-clamp-2 group-hover:text-primary transition-colors">
+                    {product.title}
+                  </h3>
+                  <div className="flex items-center justify-between">
+                    <span className="text-lg font-black text-primary">
+                      ৳{product.price.toLocaleString()}
+                    </span>
+                    <button
+                      onClick={(e) => handleAddToCart(e, product)}
+                      disabled={stock === 0}
+                      className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:scale-110 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <Plus className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    {stock > 0 ? `${stock} in stock` : "Out of stock"}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       )}
     </div>

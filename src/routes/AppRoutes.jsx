@@ -39,6 +39,7 @@ import AdminDashboard from "@/features/admin/pages/AdminDashboard";
 import AdminCoursesPage from "@/features/admin/pages/AdminCoursesPage";
 import CourseEditorPage from "@/features/admin/pages/CourseEditorPage";
 import AdminProductsPage from "@/features/admin/pages/AdminProductsPage";
+import ProductEditorPage from "@/features/admin/pages/ProductEditorPage";
 import AdminUsersPage from "@/features/admin/pages/AdminUsersPage";
 import AdminOrdersPage from "@/features/admin/pages/AdminOrdersPage";
 import AdminCertificatesPage from "@/features/admin/pages/AdminCertificatesPage";
@@ -154,6 +155,8 @@ const AppRoutes = () => {
         <Route path="courses/new" element={<CourseEditorPage />} />
         <Route path="courses/:id/edit" element={<CourseEditorPage />} />
         <Route path="products" element={<AdminProductsPage />} />
+        <Route path="products/new" element={<ProductEditorPage />} />
+        <Route path="products/:id/edit" element={<ProductEditorPage />} />
         <Route path="users" element={<AdminUsersPage />} />
         <Route path="orders" element={<AdminOrdersPage />} />
         <Route path="certificates" element={<AdminCertificatesPage />} />

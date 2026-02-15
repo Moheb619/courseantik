@@ -1,6 +1,16 @@
+// ============================================================
+// CartSidebar — Slide-out cart with variant display
+// ============================================================
 import { useCart } from "@/context/CartContext";
 import { Button } from "@/components/ui/button";
-import { X, Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
+import {
+  X,
+  Minus,
+  Plus,
+  Trash2,
+  ShoppingBag,
+  AlertTriangle,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { cn } from "@/utils/cn";
@@ -69,61 +79,96 @@ const CartSidebar = () => {
             </div>
           ) : (
             <ul className="space-y-4">
-              {cartItems.map((item) => (
-                <li key={item.id} className="flex gap-4 rounded-lg border p-3">
-                  <div className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 bg-gray-100">
-                    <img
-                      src={
-                        item.image_url ||
-                        "/src/assets/images/placeholders/product/default.png"
-                      }
-                      alt={item.title}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col justify-between">
-                    <h3 className="line-clamp-1 text-sm font-medium">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm font-bold">
-                      {new Intl.NumberFormat("en-BD", {
-                        style: "currency",
-                        currency: "BDT",
-                      }).format(item.price)}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 rounded-md border bg-muted/20 p-1">
+              {cartItems.map((item) => {
+                const nearLimit = item.quantity >= item.maxStock;
+                return (
+                  <li
+                    key={item._key}
+                    className="flex gap-4 rounded-lg border p-3"
+                  >
+                    {/* Thumbnail */}
+                    <div className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 bg-gray-100">
+                      {item.thumbnail ? (
+                        <img
+                          src={item.thumbnail}
+                          alt={item.title}
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <div className="h-full w-full flex items-center justify-center">
+                          <ShoppingBag className="w-8 h-8 text-muted-foreground/30" />
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="flex flex-1 flex-col justify-between">
+                      <h3 className="line-clamp-1 text-sm font-medium">
+                        {item.title}
+                      </h3>
+
+                      {/* Variant badges */}
+                      {(item.selectedColor || item.selectedSize) && (
+                        <div className="flex gap-1.5 mt-0.5">
+                          {item.selectedColor && (
+                            <span className="text-[10px] bg-primary/10 text-primary font-semibold px-2 py-0.5 rounded-full">
+                              {item.selectedColor}
+                            </span>
+                          )}
+                          {item.selectedSize && (
+                            <span className="text-[10px] bg-secondary/10 text-secondary font-semibold px-2 py-0.5 rounded-full">
+                              {item.selectedSize}
+                            </span>
+                          )}
+                        </div>
+                      )}
+
+                      <p className="text-sm font-bold">
+                        ৳{item.price.toLocaleString()}
+                      </p>
+
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2 rounded-md border bg-muted/20 p-1">
+                          <button
+                            className="p-1 hover:text-primary"
+                            onClick={() =>
+                              updateQuantity(item._key, item.quantity - 1)
+                            }
+                            disabled={item.quantity <= 1}
+                          >
+                            <Minus className="h-3 w-3" />
+                          </button>
+                          <span className="text-xs font-medium w-4 text-center">
+                            {item.quantity}
+                          </span>
+                          <button
+                            className="p-1 hover:text-primary disabled:opacity-40"
+                            onClick={() =>
+                              updateQuantity(item._key, item.quantity + 1)
+                            }
+                            disabled={nearLimit}
+                          >
+                            <Plus className="h-3 w-3" />
+                          </button>
+                        </div>
                         <button
-                          className="p-1 hover:text-primary"
-                          onClick={() =>
-                            updateQuantity(item.id, item.quantity - 1)
-                          }
-                          disabled={item.quantity <= 1}
+                          onClick={() => removeFromCart(item._key)}
+                          className="text-muted-foreground hover:text-destructive"
                         >
-                          <Minus className="h-3 w-3" />
-                        </button>
-                        <span className="text-xs font-medium w-4 text-center">
-                          {item.quantity}
-                        </span>
-                        <button
-                          className="p-1 hover:text-primary"
-                          onClick={() =>
-                            updateQuantity(item.id, item.quantity + 1)
-                          }
-                        >
-                          <Plus className="h-3 w-3" />
+                          <Trash2 className="h-4 w-4" />
                         </button>
                       </div>
-                      <button
-                        onClick={() => removeFromCart(item.id)}
-                        className="text-muted-foreground hover:text-destructive"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </button>
+
+                      {/* Stock warning */}
+                      {nearLimit && (
+                        <p className="flex items-center gap-1 text-[10px] text-warning mt-1">
+                          <AlertTriangle className="w-3 h-3" />
+                          Only {item.maxStock} in stock
+                        </p>
+                      )}
                     </div>
-                  </div>
-                </li>
-              ))}
+                  </li>
+                );
+              })}
             </ul>
           )}
         </div>
@@ -134,10 +179,7 @@ const CartSidebar = () => {
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Subtotal</span>
                 <span className="font-medium">
-                  {new Intl.NumberFormat("en-BD", {
-                    style: "currency",
-                    currency: "BDT",
-                  }).format(getCartTotal())}
+                  ৳{getCartTotal().toLocaleString()}
                 </span>
               </div>
               <div className="flex justify-between">
@@ -151,12 +193,7 @@ const CartSidebar = () => {
             </div>
             <div className="flex justify-between text-lg font-bold">
               <span>Total</span>
-              <span>
-                {new Intl.NumberFormat("en-BD", {
-                  style: "currency",
-                  currency: "BDT",
-                }).format(getCartTotal())}
-              </span>
+              <span>৳{getCartTotal().toLocaleString()}</span>
             </div>
             <Button
               className="w-full rounded-full border-2 border-black text-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"

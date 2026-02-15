@@ -1,3 +1,6 @@
+// ============================================================
+// CheckoutPage — Order placement with variant-aware summary
+// ============================================================
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
 import { Button } from "@/components/ui/button";
@@ -13,15 +16,10 @@ const CheckoutPage = () => {
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth();
   const [loading, setLoading] = useState(false);
-  const [location, setLocation] = useState("dhaka"); // 'dhaka' or 'outside'
+  const [location, setLocation] = useState("dhaka");
   const [formError, setFormError] = useState(null);
 
-  // Delivery charges
-  const DELIVERY_CHARGES = {
-    dhaka: 60,
-    outside: 120,
-  };
-
+  const DELIVERY_CHARGES = { dhaka: 60, outside: 120 };
   const subtotal = getCartTotal();
   const deliveryCharge = DELIVERY_CHARGES[location];
   const total = subtotal + deliveryCharge;
@@ -30,13 +28,11 @@ const CheckoutPage = () => {
     e.preventDefault();
     setFormError(null);
 
-    // Check authentication
     if (!isAuthenticated || !user) {
       navigate("/login", { state: { from: "/checkout" } });
       return;
     }
 
-    // Get form values
     const formData = new FormData(e.target);
     const name = formData.get("name");
     const phone = formData.get("phone");
@@ -49,7 +45,6 @@ const CheckoutPage = () => {
 
     setLoading(true);
     try {
-      // Build order data matching orderApi.createOrder signature
       const orderData = {
         user_id: user.id,
         subtotal,
@@ -61,21 +56,18 @@ const CheckoutPage = () => {
         payment_method: "sslcommerz",
       };
 
-      // Build items array
       const items = cartItems.map((item) => ({
         product_id: item.id,
+        variant_id: item.variantId || null,
         title: item.title,
+        color: item.selectedColor || null,
+        size: item.selectedSize || null,
         quantity: item.quantity,
         unit_price: item.price,
       }));
 
       const order = await orderApi.createOrder(orderData, items);
-
-      // Clear cart after successful order creation
       clearCart();
-
-      // TODO: Redirect to SSLCommerz payment gateway using order.id
-      // For now, navigate to order history
       alert(
         `Order #${order.id.slice(0, 8)} created! Payment integration coming soon.`,
       );
@@ -201,11 +193,31 @@ const CheckoutPage = () => {
             <h2 className="mb-4 text-xl font-bold">Order Summary</h2>
             <div className="mb-4 max-h-60 overflow-y-auto space-y-3">
               {cartItems.map((item) => (
-                <div key={item.id} className="flex justify-between text-sm">
-                  <span className="line-clamp-1">
-                    {item.title} × {item.quantity}
-                  </span>
-                  <span className="font-semibold">
+                <div
+                  key={item._key}
+                  className="flex justify-between text-sm gap-2"
+                >
+                  <div className="min-w-0 flex-1">
+                    <span className="line-clamp-1">
+                      {item.title} × {item.quantity}
+                    </span>
+                    {/* Variant info */}
+                    {(item.selectedColor || item.selectedSize) && (
+                      <div className="flex gap-1 mt-0.5">
+                        {item.selectedColor && (
+                          <span className="text-[10px] bg-muted text-muted-foreground px-1.5 py-0.5 rounded">
+                            {item.selectedColor}
+                          </span>
+                        )}
+                        {item.selectedSize && (
+                          <span className="text-[10px] bg-muted text-muted-foreground px-1.5 py-0.5 rounded">
+                            {item.selectedSize}
+                          </span>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                  <span className="font-semibold whitespace-nowrap">
                     ৳{(item.price * item.quantity).toLocaleString()}
                   </span>
                 </div>

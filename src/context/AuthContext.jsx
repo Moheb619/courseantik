@@ -59,8 +59,8 @@ export function AuthProvider({ children }) {
       if (roleResult.status === "fulfilled") {
         setRole(roleResult.value || "student");
       } else {
-        console.warn(
-          "[Auth] Role fetch failed, defaulting to student:",
+        console.error(
+          "[Auth] Role fetch failed (network or RLS), defaulting to student:",
           roleResult.reason,
         );
         setRole("student");
@@ -73,10 +73,10 @@ export function AuthProvider({ children }) {
 
     const initAuth = async () => {
       try {
-        // Add timeout to prevent hanging forever if Supabase is unreachable
+        // Add timeout to prevent hanging forever if Supabase is unreachable (30s)
         const sessionPromise = supabase.auth.getSession();
         const timeoutPromise = new Promise((_, reject) =>
-          setTimeout(() => reject(new Error("Auth timeout")), 5000),
+          setTimeout(() => reject(new Error("Auth Init Timeout (30s)")), 30000),
         );
 
         const {
