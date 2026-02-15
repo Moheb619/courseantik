@@ -20,8 +20,8 @@ export const DEFAULT_DELIVERY = {
 
 /** SSLCommerz Sandbox Config */
 export const SSLCOMMERZ_CONFIG = {
-  store_id: import.meta.env.VITE_SSLCOMMERZ_STORE_ID || 'antik663047567f12a',
-  store_passwd: import.meta.env.VITE_SSLCOMMERZ_STORE_PASSWD || 'antik663047567f12a@ssl',
+  store_id: import.meta.env.VITE_SSLCOMMERZ_STORE_ID,
+  store_passwd: import.meta.env.VITE_SSLCOMMERZ_STORE_PASSWD,
   is_live: false, // Toggle to true for production
   init_url: 'https://sandbox.sslcommerz.com/gwprocess/v3/api.php',
   validation_url: 'https://sandbox.sslcommerz.com/validator/api/validationserverAPI.php',
